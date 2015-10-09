@@ -1,0 +1,16 @@
+<ion-view view-title="{{ title }}">
+	<ion-content>
+	
+	<div class="list featured_list">
+		
+    	<a ng-repeat="video in channel" class="item item-thumbnail-left" href="#/app/video/{{video.id}}">
+    		<img ng-src="{{video.thumb}}" class="thumb">
+    		<h2>{{video.title}}</h2>
+    		<p class="summary">Views: {{ video.number_of_views | number }} | Uploaded: {{ video.uploaded }} </p>
+    		<span ng-bind-html="video.rating | rating"></span>
+    	</a>
+    </div>
+  </ion-content>
+	
+	
+</ion-view>

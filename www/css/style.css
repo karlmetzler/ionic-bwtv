@@ -1,0 +1,57 @@
+/* Empty. Add your own CSS if you like */
+ion-view.dark { background: url(../img/whitetail-bg.jpg) no-repeat; background-size: cover; background-position: center; }
+ion-content.dark { background: rgba(0,0,0,0.8); }
+.list a { background: rgba(0,0,0,0.9); }
+.list a p { color: rgba(255,255,255,0.6); }
+
+ion-view a:link, ion-view a:visited { color:#FFB800; text-decoration: none; font-weight: bold; }
+
+.item.active,.item.activated,.item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
+  border-color: #ccc;
+  background-color: #333; color:#FFF; }
+
+h1, h2, h3, h4, h5 { color: rgba(255,255,255,1); font-family: 'BebasNeueRegular';  }
+p { color: rgba(255,255,255,0.8);}
+.featured_list img.thumb { border-radius: 4px; box-shadow: 1px 2px 5px #000;}
+.featured_list .icon { font-size:22px; padding: 0 1px; }
+.featured_list .icon.stable { color:#CCCCCC; }
+.featured_list p.summary,.featured_list p.description { font-size: 12px; }
+.featured_list p.description { white-space:normal; }
+.player.rating .icon, .player.rating .icon.stable { font-size: 22px;  }
+.player.rating .icon.stable { color: #CCCCCC; }
+.video_stats h5 {padding: 0 0 2px 0;margin: 0 6px;font-weight: bold;color: #6E6E6E;border-bottom: 1px dotted #F7B302;}
+.video_stats span, .video_stats p { padding: 0 0 2px 0; margin: 0 6px; }
+.video_stats {background: #000; padding: 4px 0 4px 0; margin-bottom: 20px; width: 100%;}
+
+.list.card .item { background-color: #323232; color: rgba(255,255,255,0.7); }
+video { z-index: 10; }
+
+.logo { text-align: center; margin: 0 0 0 0;}
+
+.popup .popup-head h3 { color: #000000; font-weight: bold; font-family: inherit; }
+
+.slider { margin: 20px 0; }
+.slide { text-align: center; }
+.slide img { width: 100%; }
+.color-red { background-color: red; }
+.color-yellow { background-color: yellow; }
+
+.grid-btn img { width: 100%; border-radius: 4px; max-height: 100%; }
+.grid-btn a { color: #FFFFFF !important; font-size: }
+.grid-btn a span { line-height: 1; display: block; height: 28px; text-align: center; overflow: hidden; font-weight: 400; }
+
+.striped { margin: 10px 0 0 0; padding: 0; border-bottom: 2px solid rgba(255,184,0,.5); border-top: 2px solid rgba(255,184,0,.5); padding: 3px 6px 0;  }
+
+.add-top { margin-top: 20px; }
+
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('../fonts/bebasneue/BebasNeue-webfont.eot');
+    src: url('../fonts/bebasneue/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bebasneue/BebasNeue-webfont.woff') format('woff'),
+         url('../fonts/bebasneue/BebasNeue-webfont.ttf') format('truetype'),
+         url('../fonts/bebasneue/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

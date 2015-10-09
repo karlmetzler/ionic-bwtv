@@ -1,0 +1,88 @@
+<ion-view view-title="Backwoods TV" class="dark">
+	<ion-content class="dark padding">
+		<div class="logo">
+			<img src="img/backwoodstv-logo.png" alt="Backwoods TV: Online Streaming Video" class="center" />
+		</div>
+		
+		<div class="row">
+			<div class="col grid-btn">
+				<img src="img/slide-1.jpg" alt="Watch Full-Length TV Shows" />
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="home-grid">
+			<div class="row">
+				<div class="col grid-btn"> 
+					<a href="#/app/videos/Featured">
+						<img src="img/home-featured-image.jpg" alt="Backwoods TV Channels" />
+					</a>
+				</div>
+				<div class="col grid-btn">
+					<a href="#/app/videos/Recent">
+						<img src="img/home-recent-image.jpg" alt="Backwoods TV Channels" />
+					</a>
+				</div>
+			</div>
+			
+			<h2 class="striped">BackwoodsTV Channels</h2>
+			<div class="row">
+				
+				<div class="col grid-btn" ng-repeat="channel in channels">
+					<div>
+						<a href="#/app/channels/{{channel.channel_id}}">
+						<img ng-src="http://backwoodstv.com/uploads/player_thumbs/{{channel.channel_picture}}.jpg" class="thumb" alt="{{channel.picture_title}}">
+						<span>{{ channel.channel_name }}</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<ion-slide-box pager-click="navSlide(index)" auto-play="true" does-continue="true" slide-interval="7000" >
+			<ion-slide>
+				<div class="slide">
+					<a href="http://www.excaliburcrossbow.com"><img src="img/sponsors/excalibur-crossbow.jpg" alt="Excalibur Crossbow" /></a> 
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="slide">
+					<a href="http://www.buckbomb.com"><img src="img/sponsors/buck-bomb.jpg" alt="The Buck Bomb" /> </a>
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="slide">
+					<a href="http://www.woodswise.com"><img src="img/sponsors/woods-wise.jpg" alt="Woods Wise Game Calls" /> </a>
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="slide">
+					<a href="http://www.outdooredge.com"><img src="img/sponsors/outdoor-edge.jpg" alt="Outdoor Edge Knives" /> </a>
+				</div>
+			</ion-slide>.
+			<ion-slide>
+				<div class="slide">
+					<a href="http://www.lumenok.net"><img src="img/sponsors/lumenok.jpg" alt="Burt Coyote Lumenok" /> </a>
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+			
+		<h2 class="striped">Featured Videos</h2>
+		<div class="list featured_list add-top">
+	    	<a ng-repeat="video in videos" class="item item-thumbnail-left" href="#/app/video/{{video.id}}">
+	    		<img ng-src="{{video.thumb}}" class="thumb">
+	    		<h2>{{video.title}}</h2>
+	    		<p class="summary">Views: {{ video.number_of_views | number }} | Uploaded: {{ video.uploaded }} </p>
+	    		<span ng-bind-html="video.rating | rating"></span>
+	    	</a>
+	    	    
+	    	
+	    </div>
+	    
+	    <a class="button button-balanced button-block">View More Featured Videos</a>
+	</ion-content>
+</ion-view>

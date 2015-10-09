@@ -1,0 +1,11 @@
+<ion-view view-title="BackwoodsTV Channels">
+  <ion-content>
+	<div class="list featured_list">
+    	<a ng-repeat="channel in channels" class="item item-thumbnail-left" href="#/app/channels/{{channel.channel_id}}">
+    		<img ng-src="http://backwoodstv.com/uploads/thumbs/{{channel.channel_picture}}.jpg" class="thumb" alt="{{channel.picture_title}}">
+    		<h2>{{channel.channel_name}}</h2>
+    		<p class="description">{{ channel.channel_description | limitTo:75}} ...</p>
+    	</a>
+    </div>
+  </ion-content>
+</ion-view>

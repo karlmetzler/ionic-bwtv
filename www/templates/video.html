@@ -1,0 +1,43 @@
+
+<ion-view view-title="{{ video.title }}" class="dark">
+  <ion-content  class="dark" overflow-scroll="true">
+    <div class="player" id="player">
+    	<!--
+    	<img ng-src="{{ video.thumb }}" alt=" {{ video.title }}" style="width:100%;" />
+    	-->
+    	
+    	<video id="video1" width="{{ device_width }}" preload="metadata" controls="controls" webkit-playsinline ng-src="{{video_url}}" poster="{{ video.thumb}}">
+   			 
+		</video>
+		
+		<!--
+		<video>
+			<source type="video/mp4" src=""http://www.backwoodstv.com/uploads/mobile/dPFxHerQbNN4OB4PwnYP.mp4"">
+		</video>
+		-->	
+		
+    	
+    </div>
+    <div class="row padding">
+    	<div class="col">
+    		<h3 class="video title">{{ video.title }}</h4>
+    	</div>
+     </div>
+     
+     <div class="row video_stats">
+     	<div class="col padding-left padding-right">
+     		<h5>Total Views</h5>
+     		<p class="views">{{ video.number_of_views | number }}</p>
+     	</div>
+     	<div class="col padding-left padding-right">
+     		<h5>Rating</h5>
+     		<span ng-bind-html="video.rating | rating" class="player rating"></span>
+     	</div>
+     </div>
+    <div class="row padding">
+    	<div class="col" ng-bind-html="video.description">
+    		
+    	</div>
+    </div>
+  </ion-content>
+</ion-view>

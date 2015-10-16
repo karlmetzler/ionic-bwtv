@@ -7,7 +7,7 @@
   <author email="karl@teambackwoods.com" href="http://backwoodstv.com/">
       Backwoods TV
     </author>
-  <content src="index.html"/>
+  <content src="http://192.168.0.143:8100" original-src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>

@@ -44,6 +44,8 @@ video { z-index: 10; }
 
 .add-top { margin-top: 20px; }
 
+.player video { width: 100%; }
+
 @font-face {
     font-family: 'BebasNeueRegular';
     src: url('../fonts/bebasneue/BebasNeue-webfont.eot');

@@ -15,7 +15,11 @@ p { color: rgba(255,255,255,0.8);}
 .featured_list img.thumb { border-radius: 4px; box-shadow: 1px 2px 5px #000;}
 .featured_list .icon { font-size:22px; padding: 0 1px; }
 .featured_list .icon.stable { color:#CCCCCC; }
-.featured_list p.summary,.featured_list p.description { font-size: 12px; }
+.featured_list p.summary,.featured_list p.description, .list p.summary { font-size: 12px; }
+
+
+.item { background: transparent; }
+.item p.summary { color: rgba(255,255,255,0.7); font-weight: bold; }
 .featured_list p.description { white-space:normal; }
 .player.rating .icon, .player.rating .icon.stable { font-size: 22px;  }
 .player.rating .icon.stable { color: #CCCCCC; }

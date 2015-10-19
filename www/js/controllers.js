@@ -26,7 +26,7 @@ angular.module('bwtv.controllers', [])
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+   // console.log('Doing login', $scope.loginData);
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -40,7 +40,7 @@ angular.module('bwtv.controllers', [])
 	$scope.init = function(){
 		
 		$scope.getVideos().then(function(res){
-			console.log(res);
+			//console.log(res);
 			$scope.videos = res;
 		},function(status){
 			$scope.pageError = status;
@@ -49,7 +49,7 @@ angular.module('bwtv.controllers', [])
 		
 		$scope.getChannels()
 		.then(function(res){
-			console.log(res);
+			//console.log(res);
 			$scope.channels = res; 
 		},function(status){
 			$scope.pageError = status;
@@ -60,7 +60,7 @@ angular.module('bwtv.controllers', [])
 	
 	$scope.getVideos = function(){
 		var defer = $q.defer();
-		var endpoint = 'http://www.backwoodstv.com/bwtvapi/api/videos/features/yes/sort/indexer/direction/desc/limit/5/format/json?callback=JSON_CALLBACK';
+		var endpoint = 'http://www.backwoodstv.com/bwtvapi/api/videos/featured/yes/sort/indexer/direction/desc/limit/5/format/json?callback=JSON_CALLBACK';
 		$http.jsonp(endpoint).success(function(res){
 			defer.resolve(res);
 		}).error(function(status,err){
@@ -94,7 +94,7 @@ angular.module('bwtv.controllers', [])
   $scope.init = function(){
   	$scope.getVideos()
   	.then(function(res){
-  		console.log(res);
+  		//console.log(res);
   		$scope.videos = res;
   	},function(status){
   		$scope.pageError = status;
@@ -125,7 +125,7 @@ angular.module('bwtv.controllers', [])
 	$scope.init = function(){
 		$scope.getChannels()
 		.then(function(res){
-			console.log(res);
+			//console.log(res);
 			$scope.channels = res; 
 		},function(status){
 			$scope.pageError = status;
@@ -137,7 +137,7 @@ angular.module('bwtv.controllers', [])
 		var defer = $q.defer();
 		$http.jsonp('http://backwoodstv.com/bwtvapi/api/channels/format/json?callback=JSON_CALLBACK')
 		.success(function(res){
-			console.log(res);
+			//console.log(res);
 			defer.resolve(res);
 		}).error(function(status,err){
 			defer.reject(status);
@@ -157,7 +157,7 @@ angular.module('bwtv.controllers', [])
 		console.log('ChannelCtrl Called.');
 		$scope.getChannel()
 		.then(function(res){
-			console.log(res[0].channel);
+			//console.log(res[0].channel);
 			
 			$scope.channel = res;
 			$scope.title = res[0].channel;
@@ -170,7 +170,7 @@ angular.module('bwtv.controllers', [])
 	
 	$scope.getChannel = function(){
 		var defer = $q.defer();
-		var base_url = 'http://backwoodstv.com/bwtvapi/api/videos/channel/'+cid+'/limit/20/sort/indexer/direction/desc/format/json?callback=JSON_CALLBACK';
+		var base_url = 'http://backwoodstv.com/bwtvapi/api/videos/channel/'+cid+'/sort/indexer/direction/desc/format/json?callback=JSON_CALLBACK';
 		$http.jsonp(base_url)
 		.success(function(res){
 			defer.resolve(res);
@@ -197,7 +197,7 @@ angular.module('bwtv.controllers', [])
 	$scope.init = function(){
 		$scope.getVideo()
 		.then(function(res){
-			console.log(res);
+			//console.log(res);
 			$scope.video_url = $sce.trustAsResourceUrl(res.video_file);
 			$scope.video = res;
 			
@@ -227,7 +227,8 @@ angular.module('bwtv.controllers', [])
 	var tag=$stateParams.tag,
 		url = 'http://backwoodstv.com/bwtvapi/api/videos/',
 		params,
-		endpoint;
+		endpoint,
+		offset = 0;
 	
 	switch(tag){
 		case 'Popular':
@@ -237,7 +238,7 @@ angular.module('bwtv.controllers', [])
 			params = 'sort/indexer/direction/desc/limit/20/';
 			break;
 		default:
-			params = 'featured/yes/sort/indexer/direction/desc/limit/20/';
+			params = 'featured/yes/sort/indexer/direction/desc/';
 	}
 	
 	endpoint = url+params+'format/json';	
@@ -247,7 +248,7 @@ angular.module('bwtv.controllers', [])
 		$scope.getVideos()
 		.then(function(res){
 			$scope.videos = res;
-			console.log(res);
+			console.log('total results: ',res.length);
 		},function(status){
 			$scope.pageError = status;
 			console.log(status);
@@ -257,6 +258,7 @@ angular.module('bwtv.controllers', [])
 	};
 	
 	$scope.getVideos = function(tag){
+		//console.log('getVideos called');
 		var defer = $q.defer();
 		$http.jsonp(endpoint+'?callback=JSON_CALLBACK')
 		.success(function(res){
@@ -266,6 +268,10 @@ angular.module('bwtv.controllers', [])
 		});
 		
 		return defer.promise;
+	};
+	
+	$scope.getMore = function(){
+		console.log('getMore called');
 	};
 	
 	$scope.init();
